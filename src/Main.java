@@ -1,7 +1,15 @@
+
 import GOF.Singleton;
+import GOF.builder.CarBuilder;
+import GOF.builder.ModifiedBuilderClass;
+import GOF.builder.ProductClass;
+import GOF.prototype.BasicCar;
+import GOF.prototype.Ford;
+import GOF.prototype.Nano;
 
 public class Main{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
+        //Singleton call
         System.out.println("***Singleton pattern Demo\n");
         System.out.println("Trying to make a singleton object");
         //lazy initialization
@@ -11,6 +19,29 @@ public class Main{
         if(singleton1== singleton2){
             System.out.println("singleton1 and 2 are same instances");
         }
+        //Prototype call
+        System.out.println("***Singleton pattern Demo\n");
+        BasicCar nano= new Nano("nano");
+        nano.basePrice=10000;
+        BasicCar ford = new Ford("ford");
+        ford.basePrice=20000;
+        BasicCar bc1;
+
+        bc1= nano.clone();
+        bc1.onRoadPrice= nano.basePrice+BasicCar.setAdditionalPrice();
+        System.out.println("Car is : "+ bc1.modelName + " price is :" +bc1.onRoadPrice);
+        bc1= ford.clone();
+        bc1.onRoadPrice= ford.basePrice+ BasicCar.setAdditionalPrice();
+        System.out.println("Car is : "+ bc1.modelName + " price is :" +bc1.onRoadPrice);
+        //prototype end
+
+
+        //builder pattern
+       final  ProductClass productClass= new ModifiedBuilderClass().color("red").model("2023").price(10000).products();
+        System.out.println(productClass);
+        final  ProductClass productClass2= new ModifiedBuilderClass().color("blue").model("2023").products();
+        System.out.println(productClass2);
+
 
     }
 
