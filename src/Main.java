@@ -1,6 +1,7 @@
 
-import GOF.Singleton;
-import GOF.builder.CarBuilder;
+import GOF.Factory.Car;
+import GOF.Factory.FactoryClass;
+import GOF.singleton.Singleton;
 import GOF.builder.ModifiedBuilderClass;
 import GOF.builder.ProductClass;
 import GOF.prototype.BasicCar;
@@ -19,8 +20,9 @@ public class Main{
         if(singleton1== singleton2){
             System.out.println("singleton1 and 2 are same instances");
         }
+
         //Prototype call
-        System.out.println("***Singleton pattern Demo\n");
+        System.out.println("*** Prototype pattern Demo\n");
         BasicCar nano= new Nano("nano");
         nano.basePrice=10000;
         BasicCar ford = new Ford("ford");
@@ -37,11 +39,19 @@ public class Main{
 
 
         //builder pattern
+        System.out.println("*** Builder pattern Demo\n");
        final  ProductClass productClass= new ModifiedBuilderClass().color("red").model("2023").price(10000).products();
         System.out.println(productClass);
         final  ProductClass productClass2= new ModifiedBuilderClass().color("blue").model("2023").products();
         System.out.println(productClass2);
 
+        //Factory pattern
+        System.out.println("*** Factory pattern Demo\n");
+        FactoryClass factoryClass= new FactoryClass();
+        Car suv= factoryClass.getCars("SUV");
+        System.out.println(suv);
+        Car sedan= factoryClass.getCars("Sedan");
+        System.out.println(sedan);
 
     }
 

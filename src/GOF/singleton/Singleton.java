@@ -1,4 +1,4 @@
-package GOF;
+package GOF.singleton;
 //double-checked locking
 public final class Singleton {
     static int numberOfInstances=0;
