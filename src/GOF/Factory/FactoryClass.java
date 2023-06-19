@@ -4,6 +4,7 @@ public class FactoryClass {
 
 
     public Car getCars(String car){
+        if (car==null){return null;}
         if(car.equalsIgnoreCase("Sedan")){
             return new Sedan();
         } else if (car.equalsIgnoreCase("SUV")) {

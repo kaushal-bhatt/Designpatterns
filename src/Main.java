@@ -49,9 +49,9 @@ public class Main{
         System.out.println("*** Factory pattern Demo\n");
         FactoryClass factoryClass= new FactoryClass();
         Car suv= factoryClass.getCars("SUV");
-        System.out.println(suv);
+        System.out.println("car is "+suv.getCar()+" model is "+suv.model());
         Car sedan= factoryClass.getCars("Sedan");
-        System.out.println(sedan);
+        System.out.println("car is "+sedan.getCar()+" model is "+sedan.model());
 
     }
 
